@@ -1,48 +1,48 @@
 import React from 'react'
-import {
-    Table,
-    TableBody,
-    TableCaption,
-    TableCell,
-    TableHead,
-    TableHeader,
-    TableRow,
-} from "@/components/ui/table"
 import prisma from '@/lib/prisma'
+import TableData from './TableData';
+import FormModal from '@/components/ui/FormModal';
 
 export default async function StudentList() {
 
-    const children = await prisma.child.findMany();
+    // const columns = [
+    //     {
+    //         key: "name",
+    //         title: "Name"
+    //     },
+    //     {
+    //         key: "dob",
+    //         title: "Date of Birth"
+    //     },
+    //     {
+    //         key: "name",
+    //         title: "Gender"
+    //     },
+    //     {
+    //         key: "name",
+    //         title: "Food Allergies"
+    //     },
+    //     {
+    //         key: "name",
+    //         title: "Name"
+    //     },
+    // ]
 
-    console.log(children);
 
     return (
-        <Table>
-            <TableCaption>List of all students</TableCaption>
-            <TableHeader>
-                <TableRow>
-                    <TableHead>Full Name</TableHead>
-                    <TableHead>Date of Birth</TableHead>
-                    <TableHead>Gender</TableHead>
-                    <TableHead>Food Allergies</TableHead>
-                    <TableHead>Address</TableHead>
-                </TableRow>
-            </TableHeader>
-            <TableBody>
-                {children.map((children) => (
-                    <TableRow key={children.id}>
-                        <TableCell>{[children.firstName, children.middleName,children.lastName].filter(Boolean).join(' ')}</TableCell>
-                        <TableCell>{new Date(children.dateOfBirth).toLocaleDateString('en-CA', {
-                            year: 'numeric',
-                            month: 'short',
-                            day: 'numeric',
-                        })}</TableCell>
-                        <TableCell>{children.gender}</TableCell>
-                        <TableCell>{children.allergyInfo}</TableCell>
-                        <TableCell>{children.address}</TableCell>
-                    </TableRow>
-                ))}
-            </TableBody>
-        </Table>
+        <>
+            <div className="bg-yellow-50 flex flex-col rounded-b-md p-4 m-2">
+                {/* List Header */}
+                <div className='flex justify-between'>
+                    <h1 className='lg'> All Students </h1> {/* This will become a dropdown for classroom wise */}
+                    <div>
+                            <FormModal></FormModal>
+                        </div>{/* Image for Add new */}
+                </div>
+                {/* Main List */}
+                <TableData />
+                {/* Pagination */}
+            </div>
+        </>
     )
 }
