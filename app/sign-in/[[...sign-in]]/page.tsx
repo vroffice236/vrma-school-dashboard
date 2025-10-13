@@ -28,7 +28,7 @@ export default function SignInPage() {
               </g>
             </svg>
             <h1 className="mt-4 text-xl font-medium tracking-tight text-zinc-950">
-              Sign in to Clover
+              Sign in to Vedic Roots Dashboard
             </h1>
           </header>
           <Clerk.GlobalError className="block text-sm text-red-400" />
