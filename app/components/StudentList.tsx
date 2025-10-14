@@ -1,5 +1,4 @@
 import React from 'react'
-import prisma from '@/lib/prisma'
 import TableData from './TableData';
 import FormModal from '@/components/ui/FormModal';
 

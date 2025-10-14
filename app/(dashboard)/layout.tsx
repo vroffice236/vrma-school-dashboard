@@ -1,5 +1,6 @@
 import '../globals.css'
 import Navbar from '../components/Navbar'
+import { ToastContainer } from "react-toastify"
 
 export default function RootLayout({
   children,
@@ -10,6 +11,7 @@ export default function RootLayout({
     <>
       <Navbar></Navbar>
       {children}
+      <ToastContainer position='bottom-right'/>
     </>
   )
 }
