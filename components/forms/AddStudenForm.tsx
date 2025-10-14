@@ -6,7 +6,7 @@ import { childSchema } from '@/lib/validationSchemas';
 import { toast } from 'react-toastify';
 import { useRouter } from 'next/navigation';
 
-const AddStudenForm = () => {
+const AddStudentForm = () => {
 
   const { register, handleSubmit, formState: { errors }, } = useForm({
     resolver: zodResolver(childSchema),
@@ -72,5 +72,5 @@ const AddStudenForm = () => {
   )
 };
 
-export default AddStudenForm
+export default AddStudentForm
 

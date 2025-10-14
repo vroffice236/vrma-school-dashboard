@@ -1,6 +1,6 @@
 import React from 'react'
 import TableData from './TableData';
-import FormModal from '@/components/ui/FormModal';
+import FormButton from '@/components/ui/FormButton';
 
 export default async function StudentList() {
 
@@ -35,8 +35,8 @@ export default async function StudentList() {
                 <div className='flex justify-between'>
                     <h1 className='lg'> All Students </h1> {/* This will become a dropdown for classroom wise */}
                     <div>
-                            <FormModal></FormModal>
-                        </div>{/* Image for Add new */}
+                            <FormButton type="create" />
+                        </div>
                 </div>
                 {/* Main List */}
                 <TableData />

@@ -9,6 +9,7 @@ import {
     TableRow,
 } from "@/components/ui/table"
 import prisma from '@/lib/prisma'
+import Image from 'next/image'
 
 const TableData = async () => {
     const children = await prisma.child.findMany();
@@ -41,8 +42,8 @@ const TableData = async () => {
                             <TableCell>{children.gender}</TableCell>
                             <TableCell>{children.allergyInfo}</TableCell>
                             <TableCell>{children.address}</TableCell>
-                            <TableCell>Edit Button</TableCell>
-                            <TableCell>Delete Dutton</TableCell>
+                            <TableCell><Image alt='Edit' src="/edit.png" width={16} height={16}></Image></TableCell>
+                            <TableCell><Image alt='Edit' src="/delete.png" width={16} height={16}></Image></TableCell>
 
                         </TableRow>
                     ))}
