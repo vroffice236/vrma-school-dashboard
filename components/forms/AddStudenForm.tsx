@@ -35,16 +35,39 @@ const AddStudenForm = () => {
       {/* Form Header */}
       <h1 className='text-xl font-bold'>Add a New Student</h1>
       {/* Form Fields */}
-      <div className='flex flex-wrap'>
-
-        <label htmlFor="First Name">First Name</label>
-        <input type="text" {...register("firstName")} />
-        {errors.firstName?.message && <p>{errors.firstName?.message}</p>}
-        {state.error && <span className='text-red-500'>Something went wrong!</span>}
+      <div className='flex flex-wrap gap-3'>
         
+        <div className='flex flex-col'>
+          <label className="text-sm text-gray-500 font-bold p-0.5">First Name</label>
+          <input className="border-1 rounded-md" type="text" {...register("firstName")} />
+          {errors.firstName?.message && <p className='text-xs p-1 text-red-500'>{errors.firstName?.message}</p>}
+          {state.error && <span className='text-red-500'>Something went wrong!</span>}
+        </div>
+
+        <div className='flex flex-col'>
+          <label className="text-sm text-gray-500 font-bold p-0.5">First Name</label>
+          <input className="border-1 rounded-md" type="text" {...register("firstName")} />
+          {errors.firstName?.message && <p className='text-xs p-1 text-red-500'>{errors.firstName?.message}</p>}
+          {state.error && <span className='text-red-500'>Something went wrong!</span>}
+        </div>
+
+        <div className='flex flex-col'>
+          <label className="text-sm text-gray-500 font-bold p-0.5">First Name</label>
+          <input className="border-1 rounded-md" type="text" {...register("firstName")} />
+          {errors.firstName?.message && <p className='text-xs p-1 text-red-500'>{errors.firstName?.message}</p>}
+          {state.error && <span className='text-red-500'>Something went wrong!</span>}
+        </div>
+
+        <div className='flex flex-col'>
+          <label className="text-sm text-gray-500 font-bold p-0.5">First Name</label>
+          <input className="border-1 rounded-md" type="text" {...register("firstName")} />
+          {errors.firstName?.message && <p className='text-xs p-1 text-red-500'>{errors.firstName?.message}</p>}
+          {state.error && <span className='text-red-500'>Something went wrong!</span>}
+        </div>
+
       </div>
       {/* Form Submit */}
-      <button className='w-max font-bold text-white rounded-xl self-center p-2 bg-sky-400'>Submit</button>
+      <button className='w-max font-bold text-white rounded-xl self-center p-2 bg-sky-400'>Create</button>
     </form>
   )
 };
