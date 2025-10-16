@@ -16,7 +16,7 @@ const NavItem = (props :{name:string; link?:string;}) => {
 
 const Navbar = () => {
     return (
-        <div className="w-70 h-screen bg-white text-brand-secondary flex flex-col px-4 rounded-e-2xl">
+        <div className="w-60 h-screen bg-white text-brand-secondary flex flex-col px-4 rounded-e-2xl">
             {/* Nav Header */}
             <div className='flex items-center gap-4 py-4'>
                 <div className='h-full flex'>

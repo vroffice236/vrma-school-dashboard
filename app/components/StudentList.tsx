@@ -21,10 +21,6 @@ export default async function StudentList() {
             title: "Full Name"
         },
         {
-            key: "dob",
-            title: "Date of Birth"
-        },
-        {
             key: "parent1",
             title: "Father"
         },
@@ -53,7 +49,7 @@ export default async function StudentList() {
 
     return (
         <>
-            <div className="bg-white flex flex-col w-screen h-100% rounded-md p-4 m-2">
+            <div className="bg-white flex flex-col w-full h-100% rounded-md p-4">
                 {/* List Header */}
                 <div className='flex justify-between'>
                     <h1 className='text-2xl font-semibold'> All Students </h1> {/* This will become a dropdown for classroom wise */}

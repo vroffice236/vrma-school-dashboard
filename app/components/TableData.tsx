@@ -35,11 +35,6 @@ const TableData = async (props: { columnHeaders: Array<Column> }) => {
                     {children.map((children) => (
                         <TableRow key={children.id}>
                             <TableCell>{[children.firstName, children.middleName, children.lastName].filter(Boolean).join(' ')}</TableCell>
-                            <TableCell>{new Date(children.dateOfBirth).toLocaleDateString('en-CA', {
-                                year: 'numeric',
-                                month: 'short',
-                                day: 'numeric',
-                            })}</TableCell>
                             <TableCell></TableCell>
                             <TableCell></TableCell>
                             <TableCell>{children.allergyInfo}</TableCell>
