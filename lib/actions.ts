@@ -1,6 +1,5 @@
 "use server";
 
-import prisma from "./prisma";
 import { ChildSchema } from "./validationSchemas";
 
 export const createStudent = async (currentState: {success:boolean, error: boolean}, data:ChildSchema)=>{

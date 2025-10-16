@@ -1,14 +1,8 @@
 import React from 'react'
 
-const Dashboard = () => {
+const DashboardLayoutPage = () => {
   return (
-    <div>
-      Homepage <br />
-      ideas : <br />
-      - Homepage should be different for all users <br />
-      
-    </div>
+    <div>Dashboard Layout Page</div>
   )
 }
-
-export default Dashboard
+export default DashboardLayoutPage

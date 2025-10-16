@@ -11,8 +11,14 @@ import {
 import prisma from '@/lib/prisma'
 import Image from 'next/image'
 
-const TableData = async () => {
+type Column = {
+    key: string;
+    title: string;
+};
+
+const TableData = async (props: { columnHeaders: Array<Column> }) => {
     const children = await prisma.child.findMany();
+    const columnsHeader = props.columnHeaders;
 
     return (
         <>
@@ -20,14 +26,9 @@ const TableData = async () => {
                 <TableCaption>List of all students</TableCaption>
                 <TableHeader>
                     <TableRow>
-                        <TableHead>Full Name</TableHead>
-                        <TableHead>Date of Birth</TableHead>
-                        <TableHead>Gender</TableHead>
-                        <TableHead>Food Allergies</TableHead>
-                        <TableHead>Address</TableHead>
-                        <TableHead></TableHead>
-                        <TableHead></TableHead>
-                        <TableHead></TableHead>
+                        {columnsHeader.map((column) => (
+                            <TableHead key={column.key}>{column.title}</TableHead>
+                        ))}
                     </TableRow>
                 </TableHeader>
                 <TableBody>
@@ -39,11 +40,15 @@ const TableData = async () => {
                                 month: 'short',
                                 day: 'numeric',
                             })}</TableCell>
-                            <TableCell>{children.gender}</TableCell>
+                            <TableCell></TableCell>
+                            <TableCell></TableCell>
                             <TableCell>{children.allergyInfo}</TableCell>
-                            <TableCell>{children.address}</TableCell>
-                            <TableCell><Image alt='Edit' src="/edit.png" width={16} height={16}></Image></TableCell>
-                            <TableCell><Image alt='Edit' src="/delete.png" width={16} height={16}></Image></TableCell>
+                            <TableCell></TableCell>
+                            <TableCell></TableCell>
+                            <TableCell className='flex gap-2'>
+                                <Image alt='Edit' src="/edit.png" width={16} height={16}></Image>
+                                <Image alt='Edit' src="/delete.png" width={16} height={16}></Image>
+                            </TableCell>
 
                         </TableRow>
                     ))}
