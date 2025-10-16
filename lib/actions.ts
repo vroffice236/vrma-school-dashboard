@@ -1,20 +1,43 @@
-"use server";
+'use server';
 
+
+import prisma from "./prisma";
 import { ChildSchema } from "./validationSchemas";
 
-export const createStudent = async (currentState: {success:boolean, error: boolean}, data:ChildSchema)=>{
-    console.log(data + "in the server action");
-    // try {
-    //     await prisma.child.create({
-    //         data: { // if it shows error, it is due to missing fields, which will be added later, remove if already added!
-    //             firstName:data.firstName,
-    //         },
-    //     })
+// model Child {
+//   id Int @id @default(autoincrement())
+//   firstName String
+//   middleName String?
+//   lastName String
+//   dateOfBirth DateTime
+//   placeOfBirth String
+//   gender Gender
+//   address String
+//   allergyInfo String?
+//   dietaryRestrictions String?
+//   healthCardNo String? @unique
+//   OEN String? @unique
+//   createdAt DateTime @default(now())
+// }
 
-    //     return {success:true, error:false}
-    // }
-    // catch (err) {
-    //     console.log(err);
-    //     return {success: false, error:true}
-    // }
-}
+export const createStudent = async (
+  currentState: { success: boolean; error: boolean },
+  data: ChildSchema
+) => {
+  try {
+    await prisma.child.create({
+      data: {
+        firstName: data.firstName,
+        lastName: "Last Name",
+        dateOfBirth: new Date(),
+        placeOfBirth: "Place of Birth",
+        gender: "Male",
+        address: "Address",
+      },
+    });
+    return { success: true, error: false };
+  } catch (err) {
+    console.error("Error creating student:", err);
+    return { success: false, error: true };
+  }
+};
