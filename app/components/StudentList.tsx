@@ -1,6 +1,6 @@
 import React from 'react'
-import TableData from './TableData';
 import FormButton from '@/components/ui/FormButton';
+import DataTable from './DataTable';
 
 export default async function StudentList() {
 
@@ -17,24 +17,20 @@ export default async function StudentList() {
         // Media Release
     const columns = [
         {
-            key: "name",
-            title: "Full Name"
+            key: "info",
+            title: "Info"
         },
         {
-            key: "parent1",
-            title: "Father"
-        },
-        {
-            key: "parent2",
-            title: "Mother"
+            key: "guardians",
+            title: "Guardians"
         },
         {
             key: "foodAllergies",
             title: "Food Allergies"
         },
         {
-            key: "medicalConditions",
-            title: "Medical Conditions"
+            key: "dietRestrictions",
+            title: "Diet Restrictions"
         },
         {
             key: "mediaRelease",
@@ -58,7 +54,7 @@ export default async function StudentList() {
                     </div>
                 </div>
                 {/* Main List */}
-                <TableData columnHeaders={columns}/>
+                <DataTable columnHeaders={columns}/>
                 {/* Pagination */}
             </div>
         </>
